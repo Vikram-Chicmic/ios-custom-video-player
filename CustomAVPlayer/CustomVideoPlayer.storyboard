@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Custom Video Player-->
+        <!--Custom Video Player View-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CustomVideoPlayer" customModule="CustomAVPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomVideoPlayer" id="Y6W-OH-hqX" customClass="CustomVideoPlayerView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,11 +24,11 @@
                                     <action selector="selectVideo:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RnL-Ww-hx5"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-o7-GHi">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-o7-GHi">
                                 <rect key="frame" x="0.0" y="852" width="393" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUW-v8-Gfe">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUW-v8-Gfe">
                                 <rect key="frame" x="171.66666666666666" y="408.66666666666669" width="50" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="play.circle.fill" catalog="system"/>
@@ -36,7 +36,7 @@
                                     <action selector="playPauseButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2ev-QJ-QUZ"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6g-Bf-ycG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6g-Bf-ycG">
                                 <rect key="frame" x="24.000000000000004" y="59" width="46.333333333333343" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
@@ -44,7 +44,7 @@
                                     <action selector="closeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iNm-Ig-75q"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8P-S0-gOx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8P-S0-gOx">
                                 <rect key="frame" x="310" y="59" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="volume.3.fill" catalog="system"/>
@@ -73,7 +73,7 @@
                     <connections>
                         <outlet property="closeButton" destination="g6g-Bf-ycG" id="oJF-QR-OcN"/>
                         <outlet property="playPauseButton" destination="mUW-v8-Gfe" id="xho-TM-10s"/>
-                        <outlet property="videoContainer" destination="5EZ-qb-Rvc" id="4oi-Gg-gUW"/>
+                        <outlet property="videoContainer" destination="T2Y-o7-GHi" id="FxT-Kq-CCs"/>
                         <outlet property="volumeButton" destination="g8P-S0-gOx" id="CD6-OU-aCO"/>
                     </connections>
                 </viewController>

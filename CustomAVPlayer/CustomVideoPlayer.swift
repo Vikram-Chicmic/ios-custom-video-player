@@ -9,7 +9,11 @@ import UIKit
 import AVFoundation
 import Photos
 
-class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+public class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    public func didTapProgressBar(at percentage: Float) {
+        print("tapped")
+    }
+    
     
     // MARK: - properties
     
@@ -28,11 +32,17 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
 //    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var closeButton: UIButton!
     
-    override func viewDidLoad() {
+    
+//    var videoPlayerProgressBar: VideoPlayerProgressBar!
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        setVideoPicker()
-        setVideoContainer()
-//        customizedSlider()
+//        setupVideoPlayerProgressBar()
+//        videoPlayerProgressBar.backgroundColor = .gray
+
+//        setVideoPicker()
+//        setVideoContainer()
+////        customizedSlider()
     }
     
 //    func customizedSlider() {
@@ -54,8 +64,15 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
         picker.mediaTypes = ["public.movie"]
         picker.videoQuality = .typeHigh
     }
+//    func setupVideoPlayerProgressBar() {
+//       videoPlayerProgressBar = VideoPlayerProgressBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
+//       videoPlayerProgressBar.delegate = self
+//       videoPlayerProgressBar.progressBarColor = .green
+//       videoPlayerProgressBar.progressBarHeight = 10
+//       view.addSubview(videoPlayerProgressBar)
+//   }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true, completion: nil)
         guard let movieUrl = info[.mediaURL] as? URL else { return }
         setPlayerLayer(url: movieUrl)
