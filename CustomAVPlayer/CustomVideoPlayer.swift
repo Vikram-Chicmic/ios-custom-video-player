@@ -22,22 +22,22 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
     @IBOutlet weak var videoContainer: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var volumeButton: UIButton!
-    @IBOutlet weak var endTime: UILabel!
-    @IBOutlet weak var currentTime: UILabel!
+//    @IBOutlet weak var endTime: UILabel!
+//    @IBOutlet weak var currentTime: UILabel!
     
-    @IBOutlet weak var slider: UISlider!
+//    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var closeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setVideoPicker()
         setVideoContainer()
-        customizedSlider()
+//        customizedSlider()
     }
     
-    func customizedSlider() {
-        slider.setThumbImage(UIImage(systemName: "circle.fill"), for: .normal)
-    }
+//    func customizedSlider() {
+//        slider.setThumbImage(UIImage(systemName: "circle.fill"), for: .normal)
+//    }
     
     func setVideoContainer() {
         videoContainer.isHidden = true
@@ -78,18 +78,21 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
         let player = AVPlayer(url: url)
         
         let interval = CMTime(value: 1, timescale: 2)
-        player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progressTime) in
-            let seconds = CMTimeGetSeconds(progressTime)
-            self.currentTime.text = self.getDurationString(seconds: seconds)
-            
-            self.slider.setValue(Float(seconds), animated: true)
-        })
         
-        let seconds = CMTimeGetSeconds(player.currentItem?.asset.duration ?? CMTime(seconds: .zero, preferredTimescale: .zero))
+        // time interval for updating slider value
         
-        self.endTime.text = getDurationString(seconds: seconds)
+//        player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progressTime) in
+//            let seconds = CMTimeGetSeconds(progressTime)
+//            self.currentTime.text = self.getDurationString(seconds: seconds)
+//
+//            self.slider.setValue(Float(seconds), animated: true)
+//        })
         
-        slider.maximumValue = Float(seconds)
+//        let seconds = CMTimeGetSeconds(player.currentItem?.asset.duration ?? CMTime(seconds: .zero, preferredTimescale: .zero))
+//
+//        self.endTime.text = getDurationString(seconds: seconds)
+//
+//        slider.maximumValue = Float(seconds)
         
         self.startPlayer(player: player)
         
@@ -119,9 +122,9 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
         playPauseButton.setImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
         playPauseButton.isHidden = false
         
-        slider.isHidden = false
-        currentTime.isHidden = false
-        endTime.isHidden = false
+//        slider.isHidden = false
+//        currentTime.isHidden = false
+//        endTime.isHidden = false
         closeButton.isHidden = false
     }
     
@@ -132,19 +135,19 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
         if playerLayer.player != nil {
             playPauseButton.isHidden = !playPauseButton.isHidden
             volumeButton.isHidden = !volumeButton.isHidden
-            slider.isHidden = !slider.isHidden
-            currentTime.isHidden = !currentTime.isHidden
-            endTime.isHidden = !endTime.isHidden
+//            slider.isHidden = !slider.isHidden
+//            currentTime.isHidden = !currentTime.isHidden
+//            endTime.isHidden = !endTime.isHidden
             closeButton.isHidden = !closeButton.isHidden
         }
     }
 
     // MARK: - ib actions
     
-    @IBAction func sliderDidSlide(_ sender: UISlider) {
-        let seconds = slider.value
-        playerLayer.player?.currentItem?.seek(to: CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: 60000))
-    }
+//    @IBAction func sliderDidSlide(_ sender: UISlider) {
+//        let seconds = slider.value
+//        playerLayer.player?.currentItem?.seek(to: CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: 60000))
+//    }
     
     @IBAction func selectVideo(_ sender: UIButton) {
         present(picker, animated: true, completion: nil)
@@ -175,9 +178,9 @@ class CustomVideoPlayer: UIViewController, UINavigationControllerDelegate, UIIma
         
         playPauseButton.isHidden = !playPauseButton.isHidden
         volumeButton.isHidden = !volumeButton.isHidden
-        slider.isHidden = !slider.isHidden
-        currentTime.isHidden = !currentTime.isHidden
-        endTime.isHidden = !endTime.isHidden
+//        slider.isHidden = !slider.isHidden
+//        currentTime.isHidden = !currentTime.isHidden
+//        endTime.isHidden = !endTime.isHidden
         closeButton.isHidden = !closeButton.isHidden
         
         videoContainer.isHidden = true
