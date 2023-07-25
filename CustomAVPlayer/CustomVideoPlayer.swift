@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CustomVideoPlayer.swift
 //  AVPlayerCustom
 //
 //  Created by Himanshu on 7/24/23.
